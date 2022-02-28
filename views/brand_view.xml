@@ -1,0 +1,55 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="dealerv2_app.brand_model_form">
+      <field name="name">Brand Form</field>
+      <field name="model">dealerv2_app.brand_model</field>
+      <field name="arch" type="xml">
+        <form string="Brand">
+          <sheet>
+            <notebook>
+              <page string="Brand Data">
+                <group>
+                  <label for="name" class="oe_edit_only"/>
+                  <h1>
+                    <field name="name"/>
+                  </h1>
+                  <field name="country"/>
+                  <field name="description"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="dealerv2_app.brand_model_list">
+      <field name="name">Brand List</field>
+      <field name="model">dealerv2_app.brand_model</field>
+      <field name="arch" type="xml">
+        <tree >
+          <field name="name"/>
+          <field name="country"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="dealerv2_app.action_window_brand">
+      <field name="name">Brand Windows</field>
+      <field name="res_model">dealerv2_app.brand_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+     <menuitem name="Brand" id="dealerv2_app.menu_brand_list" parent="dealer_app.menu_operations"
+              action="dealerv2_app.action_window_brand"/>
+    
+  </data>
+</odoo>

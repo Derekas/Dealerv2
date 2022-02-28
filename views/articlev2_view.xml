@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record id="dealerv2_app.articlev2_model_tree_inherit" model="ir.ui.view">
+
+      <field name="name"> Articlev2 user tree</field>
+      <field name="model">dealerv2_app.articlev2_model</field>
+      <field name="mode">primary</field>
+      
+      <field name="inherit_id" ref="dealer_app.article_model_list"/>
+      <field name="arch" type="xml">
+      <field name="price" position="after">
+        <field name="articlev2_ids" />
+    </field>
+      </field>
+    </record>
+
+
+
+<record id="dealerv2_app.articlev2_model_form_inherit" model="ir.ui.view">
+
+  <field name="name"> Dealerv2 user</field>
+  <field name="model">dealerv2_app.articlev2_model</field>
+  <field name="mode">primary</field>
+  
+  <field name="inherit_id" ref="dealer_app.article_model_form"/>
+  <field name="arch" type="xml">
+    <field name="price" position="after">
+      <field name="articlev2_ids" />
+  </field>
+  </field>
+</record>
+ 
+ 
+    
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="dealer_app.action_window_article">
+      <field name="name">dealerv2_app window</field>
+      <field name="res_model">dealerv2_app.articlev2_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>
